@@ -1,0 +1,47 @@
+methods of accessing data
+https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/?from=http%3A%2F%2Fresearch.microsoft.com%2Fmag
+
+API portal
+https://msr-apis.portal.azure-api.net/developer#5f22163c1e650a34c0ba8c79
+
+API docs
+https://docs.microsoft.com/en-us/academic-services/project-academic-knowledge/reference-evaluate-method
+
+API tester
+https://msr-apis.portal.azure-api.net/docs/services/academic-search-api/operations/5951f78363b4fb31286b8ef4?
+
+Tap into the wealth of academic content in the Microsoft Academic Graph. 10,000 transactions per month, 3 per second for interpret, 1 per second for evaluate, 6 per minute for calcHistogram.
+
+- create mongo db instance
+- test max COUNT value
+- test "timeout" param
+  InnerException: {
+    ClassName: 'System.TimeoutException',
+    Message: "Server exceeded maximum request duration of . Use 'timeout' parameter to increase duration and try again.",
+    Data: null,
+    InnerException: null,
+    HelpURL: null,
+    StackTraceString: null,
+    RemoteStackTraceString: null,
+    RemoteStackIndex: 0,
+    ExceptionMethod: null,
+    HResult: -2146233083,
+    Source: null,
+    WatsonBuckets: null
+  }
+
+- start mongodb: brew services start mongodb-community@4.2
+
+- "timeout" param only seems applicable to calcHistogram and interpret endpoints. typcal evaluate call times out in 33 seconds on lower offsets and 2 min on  higher offsets.
+
+- other potential data sources:
+scopus
+cwts web of science
+dimensions
+crossref
+
+msft academic twitter
+https://twitter.com/MSFTAcademic
+
+option to self host the API on azure
+https://www.microsoft.com/en-us/research/project/academic/articles/introducing-the-microsoft-academic-knowledge-exploration-service-makes-v2/
