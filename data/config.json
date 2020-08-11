@@ -1,5 +1,0 @@
-{
-    "key": "",
-    "mongodbConnection": "mongodb://localhost:27017",
-    "db": "dora"
-}

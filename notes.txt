@@ -12,9 +12,7 @@ https://msr-apis.portal.azure-api.net/docs/services/academic-search-api/operatio
 
 Tap into the wealth of academic content in the Microsoft Academic Graph. 10,000 transactions per month, 3 per second for interpret, 1 per second for evaluate, 6 per minute for calcHistogram.
 
-- create mongo db instance
-- test max COUNT value
-- test "timeout" param
+- time out
   InnerException: {
     ClassName: 'System.TimeoutException',
     Message: "Server exceeded maximum request duration of . Use 'timeout' parameter to increase duration and try again.",
@@ -45,3 +43,9 @@ https://twitter.com/MSFTAcademic
 
 option to self host the API on azure
 https://www.microsoft.com/en-us/research/project/academic/articles/introducing-the-microsoft-academic-knowledge-exploration-service-makes-v2/
+
+- to test
+max COUNT value
+"timeout" param
+GET vs POST endpoints
+no ordering vs orderby CC:desc. is no order similar?

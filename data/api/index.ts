@@ -1,16 +1,16 @@
 import axios, { AxiosError } from 'axios';
 
 import * as config from "./config.json";
-import { DbAccess } from "./db";
-import { EvaluateRequest, EvaluateResponse, Paper } from "./types";
+import { DbAccess } from "./lib/db";
+import { EvaluateRequest, EvaluateResponse, Paper } from "./lib/types";
 
 
-const url = 'https://api.labs.cognitive.microsoft.com/academic/v1.0/evaluate';
+const url = config.api.url;
 
 const attributes = 'AA.AfId,AA.AfN,AA.AuId,AA.AuN,AA.DAuN,AA.DAfN,AA.S,AW,BT,BV,C.CId,C.CN,CC,CitCon,D,DN,DOI,ECC,F.DFN,F.FId,F.FN,FamId,FP,I,IA,Id,J.JId,J.JN,LP,PB,Pt,RId,S,Ti,V,VFN,VSN,W,Y';
 
 const headers = {
-    'Ocp-Apim-Subscription-Key': config.key
+    'Ocp-Apim-Subscription-Key': config.api.key
 };
 
 const MAX_OFFSET = 1000000;
@@ -27,7 +27,7 @@ let dbAccess: DbAccess;
     // connect and verify db
     dbAccess = new DbAccess();
     await dbAccess.connect();
-    console.log(`Successfully connected to ${config.mongodbConnection}`);
+    console.log(`Successfully connected to ${config.db.connection}`);
 
     for (let year = START; year < END; year++) {
         console.log();
@@ -76,7 +76,3 @@ async function queryBatch(year: number, offset: number) {
     const res = await axios.post<EvaluateResponse<Paper>>(url, evaluateRequest, { headers });
     return res.data.entities;
 }
-
-
-
-

@@ -1,7 +1,7 @@
 import axios, { AxiosError } from 'axios';
 
 import * as config from '../config.json';
-import { EvaluateRequest, EvaluateResponse, Paper } from '../types';
+import { EvaluateRequest, EvaluateResponse, Paper } from '../lib/types';
 
 
 const url = 'https://api.labs.cognitive.microsoft.com/academic/v1.0/evaluate';
@@ -9,7 +9,7 @@ const url = 'https://api.labs.cognitive.microsoft.com/academic/v1.0/evaluate';
 const attributes = 'AA.AfId,AA.AfN,AA.AuId,AA.AuN,AA.DAuN,AA.DAfN,AA.S,AW,BT,BV,C.CId,C.CN,CC,CitCon,D,DN,DOI,ECC,F.DFN,F.FId,F.FN,FamId,FP,I,IA,Id,J.JId,J.JN,LP,PB,Pt,RId,S,Ti,V,VFN,VSN,W,Y';
 
 const headers = {
-    'Ocp-Apim-Subscription-Key': config.key
+    'Ocp-Apim-Subscription-Key': config.api.key
 };
 
 const COUNT = 100;

@@ -1,7 +1,7 @@
 import { MongoClient, ObjectId, Db, Collection } from 'mongodb';
 import { Paper } from './types';
 
-import * as config from './config.json';
+import * as config from '../config.json';
 
  
 
@@ -11,10 +11,10 @@ export class DbAccess {
     collection: Collection;
 
     async connect() {
-        this.client = new MongoClient(config.mongodbConnection, { useUnifiedTopology: true });
+        this.client = new MongoClient(config.db.connection, { useUnifiedTopology: true });
         await this.client.connect();
 
-        this.db = this.client.db(config.db);
+        this.db = this.client.db(config.db.dbName);
         this.collection = this.db.collection('paper');
     }
 

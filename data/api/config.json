@@ -1,0 +1,10 @@
+{
+    "api": {
+        "key": "",
+        "url": "https://api.labs.cognitive.microsoft.com/academic/v1.0/evaluate"
+    },
+    "db": {
+        "connection": "mongodb://localhost:27017",
+        "dbName": "dora"
+    }
+}
